@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_book_app/widgets/recipe/recipe_card.dart';
 
+import '../../data/recipe_detail_args.dart';
 import '../../models/recipe.dart';
 
 class ResponsiveRecipeGrid extends StatelessWidget {
@@ -51,7 +52,20 @@ class ResponsiveRecipeGrid extends StatelessWidget {
             return ResponsiveRecipeCard(
               recipe: recipe,
               isFavorite: isFavorite,
-              onTap: () => onRecipeTap?.call(recipe),
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  '/recipe-detail',
+                  arguments: RecipeDetailArgs(
+                    recipe: recipe,
+                    isFromFavorites: isFavorite,
+                    previousScreenTitle: 'HomeScreen',
+                    onFavoriteChanged: () {
+                      onToggleFavorite?.call(recipe);
+                    },
+                  ),
+                );
+              },
               onFavorite: () => onToggleFavorite?.call(recipe),
             );
           },
@@ -100,4 +114,19 @@ class ResponsiveRecipeGrid extends StatelessWidget {
   //       return 7 / 3; // Wide card, flatter layout
   //   }
   // }
+
+  void _recipeDetailScreen(BuildContext context, Recipe recipe) {
+    Navigator.pushNamed(
+      context,
+      '/recipe-detail',
+      arguments: RecipeDetailArgs(
+        recipe: recipe,
+        isFromFavorites: true,
+        previousScreenTitle: 'HomeScreen',
+        onFavoriteChanged: () {
+          // Your custom callback logic
+        },
+      ),
+    );
+  }
 }
