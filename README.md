@@ -2,7 +2,7 @@
 
 Welcome to your **Capstone Project for Week 3**! This is a complete, professional-quality **Recipe App** built using **Flutter**, showcasing your ability to build responsive, interactive, and user-friendly applications across all screen sizes — mobile, tablet, and desktop.
 
-> Think of this as your "final exam" — but way more fun. 😄
+
 
 ---
 
@@ -21,8 +21,6 @@ Welcome to your **Capstone Project for Week 3**! This is a complete, professiona
   </tr>
 </table>
 
-> ⚠️ Place your screenshots inside `assets/screenshots/` folder and name them:  
-> `desktop_view.png`, `tablet_view.png`, and `mobile_view.png`
 
 ---
 
